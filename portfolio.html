@@ -1,0 +1,468 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Vikas Verma - Flutter Developer</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+
+			:root {
+				--primary-color: #FFD700;  /* Yellow */
+				--secondary-color: #FFC107; /* Darker Yellow */
+				--text-color: #333;
+				--dark-bg: #1A1A1A;
+				--card-bg: #242424;
+				--hover-color: #FFE44D;
+			}
+
+			html {
+    			scroll-behavior: smooth; /* Enables smooth scrolling */
+			}
+
+			body {
+				line-height: 1.6;
+				color: #E0E0E0;
+				background-color: var(--dark-bg);
+			}
+
+			/* Navigation Bar */
+			nav {
+				background: linear-gradient(135deg, var(--dark-bg), #000);
+				color: var(--primary-color);
+				padding: 1rem;
+				position: sticky;
+				top: 0;
+				z-index: 1000;
+			}
+
+			nav ul {
+				list-style: none;
+				display: flex;
+				justify-content: flex-end;
+				gap: 2rem;
+			}
+
+			nav ul li {
+				margin: 0;
+			}
+
+			.nav-button {
+				background-color: var(--primary-color); /* No background */
+				color: var(--dark-bg);
+				text-decoration: none; /* Remove underline */
+				font-size: 1.1rem;
+				padding: 0.5rem 1rem; /* Add padding for the button effect */
+				border: 2px solid var(--primary-color); /* Button border */
+				border-radius: 50px; /* Rounded corners */
+				transition: all 0.3s;
+			}
+
+			.nav-button:hover {
+				transform: translateY(-5px);
+				background-color: var(--hover-color); /* Change background on hover */
+				color: var(--dark-bg); /* Change text color on hover */
+				box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2); /* Add shadow on hover */
+			}
+
+			/* Header Styles */
+			header {
+				background: linear-gradient(135deg, var(--dark-bg), #000), url("images/portfolio-background.jpg");
+				background-size: cover;
+				background-position: center;
+				color: var(--primary-color);
+				padding: 2rem;
+				text-align: center;
+				border-bottom: 3px solid var(--primary-color);
+			}
+
+			.profile-container {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.profile-image {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				margin: 1rem auto;
+				background-color: var(--card-bg);
+				border: 3px solid var(--primary-color);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 3rem;
+				color: var(--primary-color);
+			}
+
+			.social-links {
+				margin: 1rem 0;
+			}
+
+			.social-links a {
+				color: var(--primary-color);
+				margin: 0 1rem;
+				font-size: 1.5rem;
+				text-decoration: none;
+				transition: all 0.3s;
+			}
+
+			.social-links a:hover {
+				color: var(--hover-color);
+				transform: translateY(-3px);
+			}
+
+			/* Main Content Styles */
+			main {
+				max-width: 1200px;
+				margin: 2rem auto;
+				padding: 0 1rem;
+			}
+
+			.section {
+				background: var(--card-bg);
+				border-radius: 10px;
+				padding: 2rem;
+				margin-bottom: 2rem;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+				border: 1px solid #333;
+			}
+
+			h2 {
+				color: var(--primary-color);
+				margin-bottom: 1.5rem;
+				border-bottom: 2px solid var(--primary-color);
+				padding-bottom: 0.5rem;
+			}
+
+			/* Skills Section */
+			.skills-container {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+			}
+
+			.skill-category {
+				background: rgba(255, 215, 0, 0.05);
+				padding: 1rem;
+				border-radius: 5px;
+				border: 1px solid var(--primary-color);
+			}
+
+			.skill-category h3 {
+				color: var(--primary-color);
+			}
+
+			.skill-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+
+			.skill-tag {
+				background: var(--dark-bg);
+				color: var(--primary-color);
+				padding: 0.3rem 0.8rem;
+				border-radius: 15px;
+				font-size: 0.9rem;
+				border: 1px solid var(--primary-color);
+				transition: all 0.3s;
+			}
+
+			.skill-tag:hover {
+				background: var(--primary-color);
+				color: var(--dark-bg);
+			}
+
+			/* Projects Section */
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1.5rem;
+			}
+
+			.project-card {
+				background: rgba(255, 215, 0, 0.05);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s;
+				border: 1px solid var(--primary-color);
+			}
+
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 6px 12px rgba(255, 215, 0, 0.2);
+			}
+
+			.project-card h3 {
+				color: var(--primary-color);
+			}
+
+			.project-links {
+				margin-top: 1rem;
+			}
+
+			.project-links a {
+				color: var(--primary-color);
+				text-decoration: none;
+				margin-right: 1rem;
+				transition: color 0.3s;
+			}
+
+			.project-links a:hover {
+				color: var(--hover-color);
+			}
+
+			/* Timeline Styles */
+			.timeline {
+				position: relative;
+				padding-left: 2rem;
+			}
+
+			.timeline-item {
+				position: relative;
+				padding-bottom: 2rem;
+			}
+
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -2rem;
+				top: 0;
+				height: 100%;
+				width: 2px;
+				background: var(--primary-color);
+			}
+
+			.timeline-item::after {
+				content: '';
+				position: absolute;
+				left: -2.4rem;
+				top: 0;
+				width: 1rem;
+				height: 1rem;
+				border-radius: 50%;
+				background: var(--primary-color);
+				border: 2px solid var(--dark-bg);
+			}
+
+			.timeline-item h3 {
+				color: var(--primary-color);
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.skills-container {
+					grid-template-columns: 1fr;
+				}
+
+				.projects-grid {
+					grid-template-columns: 1fr;
+				}
+
+				header {
+					padding: 1rem;
+				}
+
+				.profile-image {
+					width: 120px;
+					height: 120px;
+				}
+
+				nav ul {
+					flex-direction: column;
+					align-items: center;
+					gap: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navigation Bar -->
+		<nav>
+			<ul>
+				<li><a href="#home" class="nav-button">Home</a></li>
+				<li><a href="#about" class="nav-button">About</a></li>
+				<li><a href="#resume" class="nav-button">Resume</a></li>
+				<li><a href="#projects" class="nav-button">Projects</a></li>
+				<li><a href="#contact" class="nav-button">Contact</a></li>
+			</ul>
+		</nav>
+
+		<!-- Header Section -->
+		<header id="home">
+			<div class="profile-container">
+				<div class="profile-image">
+					<i class="fas fa-user"></i>
+				</div>
+				<h1>Vikas Verma</h1>
+				<p>Flutter Developer</p>
+				<div class="social-links">
+					<a href="mailto:vikasverma10072002@outlook.com" title="Email Vikas Verma"><i class="fas fa-envelope"></i></a>
+					<a href="tel:639499485" title="Call Vikas Verma"><i class="fas fa-phone"></i></a>
+					<a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+					<a href="https://github.com" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a>
+				</div>
+			</div>
+		</header>
+
+		<!-- Main Content -->
+		<main>
+			<section id="about" class="section">
+				<h2>About Me</h2>
+				<p>Seeking to leverage and utilize my Flutter Development learning to streamline processes, increase efficiency and minimize company's costs. Driven to learn and work hard to exhibit a solid understanding and expertise in the industry.</p>
+			</section>
+
+			<section id="resume" class="section">
+				<h2>Skills</h2>
+				<div class="skills-container">
+					<div class="skill-category">
+						<h3>Languages</h3>
+						<div class="skill-list">
+							<span class="skill-tag">Dart</span>
+							<span class="skill-tag">Java</span>
+							<span class="skill-tag">SQL</span>
+							<span class="skill-tag">C#</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3>Technologies</h3>
+						<div class="skill-list">
+							<span class="skill-tag">Flutter</span>
+							<span class="skill-tag">VS Code</span>
+							<span class="skill-tag">SQL Server</span>
+							<span class="skill-tag">.Net</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="projects" class="section">
+				<h2>Projects</h2>
+				<div class="projects-grid">
+					<div class="project-card">
+						<h3>CosmosPedia</h3>
+						<p>A Personalized Astronomical Companion using Flutter and Dart</p>
+						<div class="project-links">
+							<a href="#"><i class="fab fa-github"></i> View on GitHub</a>
+						</div>
+					</div>
+					<div class="project-card">
+						<h3>Shubhचिंतक</h3>
+						<p>An aggrotech mobile application using Flutter and Dart</p>
+						<div class="project-links">
+							<a href="#"><i class="fab fa-github"></i> View on GitHub</a>
+						</div>
+					</div>
+					<div class="project-card">
+						<h3>Iter</h3>
+						<p>Gemini Based AI ChatBot (Bloc State Management)</p>
+						<div class="project-links">
+							<a href="#"><i class="fab fa-github"></i> View on GitHub</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<h2>Education</h2>
+				<div class="timeline">
+					<div class="timeline-item">
+						<h3>Master of Computer Applications</h3>
+						<p>Galgotias University | 2023 – 2025</p>
+						<p>CGPA: 9.17/10</p>
+					</div>
+					<div class="timeline-item">
+						<h3>Bachelor of Computer Applications</h3>
+						<p>National Post Graduate College | 2020 – 2023</p>
+						<p>CGPA: 7.4/10</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact" class="section">
+				<h2>Achievements</h2>
+				<div class="timeline">
+					<div class="timeline-item">
+						<h3>Virtual Hackathon - Second Runner Up</h3>
+						<p>Lucknow, Uttar Pradesh | 2022</p>
+					</div>
+					<div class="timeline-item">
+						<h3>7 Days Tech Fest - Organizer Team</h3>
+						<p>Lucknow, Uttar Pradesh | 2022</p>
+					</div>
+					<div class="timeline-item">
+						<h3>National Service Scheme - Volunteer</h3>
+						<p>Lucknow, Uttar Pradesh | 2020 – 2022</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			// Smooth scroll with offset
+			document.querySelectorAll('nav ul li a').forEach(button => {
+				button.addEventListener('click', function(e) {
+					e.preventDefault(); // Prevent default anchor click behavior
+
+					const targetId = this.getAttribute('href'); // Get target section ID
+					const targetSection = document.querySelector(targetId); // Find target section
+
+					// Calculate the offset (adjust the value as needed)
+					const offset = 100; // Number of pixels to stop before the section
+					const elementPosition = targetSection.getBoundingClientRect().top;
+					const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+					// Scroll to the calculated position
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: 'smooth' // Smooth scroll
+					});
+				});
+			});
+
+			// Load projects from localStorage
+			function loadProjects() {
+				const projects = JSON.parse(localStorage.getItem('portfolioProjects')) || [
+					{
+						title: "CosmosPedia",
+						description: "A Personalized Astronomical Companion using Flutter and Dart",
+						github: "#"
+					},
+					{
+						title: "Shubhचिंतक",
+						description: "An aggrotech mobile application using Flutter and Dart",
+						github: "#"
+					},
+					{
+						title: "Iter",
+						description: "Gemini Based AI ChatBot (Bloc State Management)",
+						github: "#"
+					}
+				];
+
+				const projectsGrid = document.querySelector('.projects-grid');
+				projectsGrid.innerHTML = projects.map(project => `
+					<div class="project-card">
+						<h3>${project.title}</h3>
+						<p>${project.description}</p>
+						<div class="project-links">
+							<a href="${project.github}"><i class="fab fa-github"></i> View on GitHub</a>
+						</div>
+					</div>
+				`).join('');
+			}
+
+			// Load projects when the page loads
+			document.addEventListener('DOMContentLoaded', loadProjects);
+
+
+		</script>
+	</body>
+	</html>

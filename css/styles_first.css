@@ -1,0 +1,204 @@
+styles.css
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #CC005F;
+}
+
+a {
+    color: #CC005F;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header .logo a {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Intro Section */
+#intro {
+    background: url('images/background.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.intro-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* About Section */
+#about {
+    padding: 60px 0;
+}
+
+.intro-info img {
+    border-radius: 50%;
+    max-width: 150px;
+}
+
+.info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Skills Section */
+.skill-bars {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-bars li {
+    margin: 10px 0;
+}
+
+/* Resume Section */
+.resume-header h2, .portfolio-header h2 {
+    text-align: center;
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 60px 0;
+}
+
+.folio-item {
+    margin-bottom: 20px;
+}
+
+.folio-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.folio-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-form {
+    padding: 40px 0;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.submitform {
+    background: #CC005F;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submitform:hover {
+    background: #a3004d;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-social {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-social li {
+    display: inline;
+    margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .intro-content h1 {
+        font-size: 32px;
+    }
+
+    .intro-info img {
+        max-width: 100px;
+    }
+}
+
+/* Navigation Styles */
+.main-navigation {
+    display: flex;
+    justify-content: center; /* Center the navigation items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-navigation li {
+    margin: 0 20px; /* Spacing between menu items */
+}
+
+.main-navigation a {
+    font-size: 16px; /* Font size */
+    color: #fff; /* Text color */
+    padding: 10px 15px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.main-navigation a:hover {
+    background: #CC005F; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .main-navigation {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .main-navigation li {
+        margin: 10px 0; /* Adjust margin for vertical stacking */
+    }
+}
+
